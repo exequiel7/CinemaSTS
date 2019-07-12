@@ -18,5 +18,5 @@
 		</property>
 	</bean>
 
-
+	<mvc:resources mapping="/resources/**" location="/resources/" />  <!--mapeando el directorio 'resources' responde a url:/resources/** y nombre fisico directorio: /resources/ -->
 </beans>
