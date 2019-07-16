@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+
 <!DOCTYPE html">
 <html>
 <head>
@@ -10,9 +13,10 @@
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
-
+<spring:url value="/resources" var="urlPublic" />
 </head>
 <body>
+
 	<%--
 	<h1>Lista de Peliculas</h1>
 	
@@ -48,9 +52,18 @@
 							<td>${pelicula.duracion}min.</td>
 							<td>${pelicula.clasificacion}</td>
 							<td>${pelicula.genero}</td>
-							<td>${pelicula.imagen}</td>
-							<td>${pelicula.fechaEstreno}</td>
-							<td>${pelicula.estado}</td>
+							<td style="text-align:center;"><img src="${urlPublic}/images/${pelicula.imagen}" width="120" height="160"></td>
+							<td><fmt:formatDate value="${pelicula.fechaEstreno}" pattern="dd/MM/yyyy"/></td>
+							<td>
+								<c:choose>
+									<c:when test="${pelicula.estado == 'Activa'}">
+										<span class="badge badge-success" >ACTIVA</span>
+									</c:when>
+									<c:otherwise>
+										<span class="badge badge-danger">INACTIVA</span>
+									</c:otherwise>
+								</c:choose>
+							</td>
 						</tr>
 					</c:forEach>
 				</tbody>
