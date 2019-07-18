@@ -90,10 +90,21 @@ public class HomeController {
 			peli4.setImagen("kong.png");
 			peli4.setEstado("Inactiva"); //Pelicula Inactiva
 			
+			Pelicula peli5 = new Pelicula();
+			peli5.setId(5);
+			peli5.setTitulo("Life: Vida Inteligente");
+			peli5.setDuracion(104);
+			peli5.setClasificacion("B");
+			peli5.setGenero("Drama");
+			peli5.setFechaEstreno(formatter.parse("15-07-2019"));
+			peli5.setImagen("estreno5.png");
+			peli5.setEstado("activa"); 
+			
 			listaPeliculas.add(peli1);
 			listaPeliculas.add(peli2);
 			listaPeliculas.add(peli3);
 			listaPeliculas.add(peli4);
+			listaPeliculas.add(peli5);
 			
 			return listaPeliculas;
 		} catch (Exception e) {
