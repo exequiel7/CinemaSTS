@@ -1,18 +1,23 @@
 package net.itinajero.app.controller;
 
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import net.itinajero.app.model.Pelicula;
 
 @Controller
 public class HomeController {
+	
+	private SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
 
 	@RequestMapping(value="/home", method=RequestMethod.GET)
 	public String goHome(){
@@ -26,20 +31,31 @@ public class HomeController {
 //		peliculas.add("Rapido y Furioso");
 //		peliculas.add("El aro 2");
 //		peliculas.add("Aliens");
+		model.addAttribute("fechaBusqueda", dateFormat.format(new Date()));
 		model.addAttribute("peliculas", peliculas);
 		
 		return "home";
 	}
 	
-	@RequestMapping(value="/detail")
-	public String mostrarDetalle(Model model) {
-		String tituloPelicula = "Rapidos y furiosos";
-		int duracion = 136;
-		double precioEntrada = 50;
+//	@RequestMapping(value="/detail/{id}/{fecha}", method=RequestMethod.GET)
+//	public String mostrarDetalle(Model model, @PathVariable("id") int idPelicula, @PathVariable("fecha") String fecha) {
+	@RequestMapping(value="/detail", method=RequestMethod.GET)
+	public String mostrarDetalle(Model model, @RequestParam("idMovie") int idPelicula, @RequestParam("fecha") String fecha) {
 		
-		model.addAttribute("titulo", tituloPelicula);
-		model.addAttribute("duracion", duracion);
-		model.addAttribute("precio", precioEntrada);
+		System.out.println("Buscando Horarios para la pelicula: " + idPelicula);
+		System.out.println("Para la fecha: " + fecha);
+//		TODO - BUSCAR en la base de datos los horarios
+		
+		
+		
+		
+//		String tituloPelicula = "Rapidos y furiosos";
+//		int duracion = 136;
+//		double precioEntrada = 50;
+//		
+//		model.addAttribute("titulo", tituloPelicula);
+//		model.addAttribute("duracion", duracion);
+//		model.addAttribute("precio", precioEntrada);
 		
 		return "detalle";
 		
@@ -60,19 +76,19 @@ public class HomeController {
 			peli1.setClasificacion("B");
 			peli1.setGenero("Aventura");
 			peli1.setFechaEstreno(formatter.parse("15-07-2019"));
+			//imagen = "cinema.png"
 			
 			Pelicula peli2 = new Pelicula();
-			peli2.setId(1);
+			peli2.setId(2);
 			peli2.setTitulo("La Bella y la Bestia");
 			peli2.setDuracion(132);
 			peli2.setClasificacion("A");
 			peli2.setGenero("Infantil");
 			peli2.setFechaEstreno(formatter.parse("20-07-2019"));
 			peli2.setImagen("bella.png");
-			//imagen = "cinema.png"
 			
 			Pelicula peli3 = new Pelicula();
-			peli3.setId(1);
+			peli3.setId(3);
 			peli3.setTitulo("Contratiempo");
 			peli3.setDuracion(106);
 			peli3.setClasificacion("B");
