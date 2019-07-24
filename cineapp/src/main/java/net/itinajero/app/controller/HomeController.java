@@ -20,8 +20,14 @@ public class HomeController {
 	
 	private SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
 
-	@RequestMapping(value="/home", method=RequestMethod.GET)
+	@RequestMapping(value="/home", method=RequestMethod.GET) //peticiones tipo GET
 	public String goHome(){
+		return "home";
+	}
+	
+	@RequestMapping(value="/search", method=RequestMethod.POST) //Peticiones tipo POST
+	public String buscar(@RequestParam("fecha") String fecha) { //vinculo con parametro fecha en el atributo name='fecha'
+		System.out.println("Buscando todas las peliculas en exhibicion para las fechas: " + fecha);
 		return "home";
 	}
 	
