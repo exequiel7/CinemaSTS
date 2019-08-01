@@ -38,7 +38,7 @@ public class HomeController {
 		model.addAttribute("peliculas", peliculas);
 		System.out.println("Buscando todas las peliculas en exhibicion para las fechas: " + fecha);
 		return "home";
-	}
+	} 
 	
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public String mostrarPrincipal(Model model) {
