@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- En el rootApplicationContext se van a configurar los componentes de la capa de negocio y la capa de datos. -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+		
+	<context:component-scan base-package="net.itinajero.app.service" />
+<!-- 	al arrancar nuestra aplicacion spring va a scanear todas las clases que esten en este paquete y al encontrar las clases con la anotacion service va a crear una nueva instancia -->
+</beans>
