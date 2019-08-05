@@ -16,8 +16,4 @@ public class NoticiasService implements INoticiasService{
 		
 	}
 	
-	public void hola() {
-		System.out.println("HOLAAAAAAAAAAAAAAAA");
-	}
-
 }

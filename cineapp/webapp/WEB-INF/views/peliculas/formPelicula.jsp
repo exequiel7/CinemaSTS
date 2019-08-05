@@ -55,12 +55,13 @@
 			<div class='alert alert-danger' role='alert'>
 				Por favor corrija los siguientes errores:
 				<ul>
-					<c:forEach var="error" items="${errors.allError}">
+					<c:forEach var="error" items="${errors.allErrors}">
 						<li><spring:message message="${error}" /></li>
 					</c:forEach>
 				</ul>
 			</div>
 		</spring:hasBindErrors>
+		
 		<form action="${urlForm}" method="post">
 			<div class="row">
 				<div class="col-sm-3">
@@ -69,7 +70,7 @@
 							class="form-control" name="titulo" id="titulo"
 							required="required" />
 					</div>
-				</div>
+				</div> 
 				<div class="col-sm-3">
 					<div class="form-group">
 						<label for="duracion">Duracion</label> <input type="text"
@@ -109,8 +110,8 @@
 			<div class="row">
 				<div class="col-sm-3">
 					<div class="form-group">
-						<label for="estatus" class="control-label">Estatus</label> <select
-							id="genero" name="estatus" class="form-control">
+						<label for="estado" class="control-label">Estatus</label> <select
+							id="estado" name="estado" class="form-control">
 							<option value="Activa">Activa</option>
 							<option value="Inactiva">Inactiva</option>
 						</select>
