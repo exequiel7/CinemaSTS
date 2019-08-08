@@ -26,7 +26,12 @@
 	<div class="container theme-showcase" role="main">
 
 		<h3>Listado de Peliculas</h3>
-
+		
+		<c:if test="${mensaje != null }">
+			<h4 class="text-primary font-weight-bold"> ${mensaje} </h4>
+		</c:if>
+		
+		<br>
 		<a href="${urlCreate}" class="btn btn-success" role="button"
 			title="Nueva Pelicula"> Nueva</a><br> <br>
 		<div class="table-responsive">

@@ -65,7 +65,7 @@ public class PeliculasService implements IPeliculasService{
 			peli5.setGenero("Drama");
 			peli5.setFechaEstreno(formatter.parse("15-07-2019"));
 			peli5.setImagen("estreno5.png");
-			peli5.setEstado("activa"); 
+			peli5.setEstado("Activa"); 
 			
 			lista.add(peli1);
 			lista.add(peli2);

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import net.itinajero.app.model.Pelicula;
 import net.itinajero.app.service.IPeliculasService;
@@ -40,7 +41,7 @@ public class PeliculasController {
 	}
 	
 	@PostMapping("/save")
-	public String guardar(Pelicula pelicula, BindingResult result) {
+	public String guardar(Pelicula pelicula, BindingResult result, RedirectAttributes attributes) {
 		if(result.hasErrors()) {
 			System.out.println("Existieron errores");
 			return "peliculas/formPelicula";
@@ -56,7 +57,11 @@ public class PeliculasController {
 		servicePeliculas.insertar(pelicula);
 		
 		System.out.println("Elementos en la lista DESPUES de la insercion: " + servicePeliculas.buscarTodas().size());
-		return "peliculas/formPelicula";
+		
+		attributes.addFlashAttribute("mensaje", "El registro fue guardado exitosamente.");
+//		model.addAttribute("mensaje", "El registro fue guardado exitosamente.");
+		//return "peliculas/formPelicula";
+		return "redirect:/peliculas/index";
 	}
 	
 	@InitBinder
