@@ -28,7 +28,7 @@
 		<h3>Listado de Peliculas</h3>
 		
 		<c:if test="${mensaje != null }">
-			<h4 class="text-primary font-weight-bold"> ${mensaje} </h4>
+			<h4 class='alert alert-success' role="alert"> ${mensaje} </h4>
 		</c:if>
 		
 		<br>
