@@ -19,4 +19,6 @@
 	</bean>
 
 	<mvc:resources mapping="/resources/**" location="/resources/" />  <!--mapeando el directorio 'resources' responde a url:/resources/** y nombre fisico directorio: /resources/ -->
+	
+	<bean id="multipartResolver" class="org.springframework.web.multipart.support.StandardServletMultipartResolver"></bean>
 </beans>
